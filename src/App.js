@@ -9,9 +9,9 @@ import calculate from './calculations';
 const defaultOverpayment = { month: '1', year: '0', amount: '0' };
 
 export default () => {
-  const [initial, setInitial] = useState('200000');
-  const [rate, setRate] = useState('5');
-  const [years, setYears] = useState('25');
+  const [initial, setInitial] = useState('0');
+  const [rate, setRate] = useState('0');
+  const [years, setYears] = useState('0');
   const [monthlyOverpayment, setMonthlyOverpayment] = useState('0');
   const [overpayments, setOverpayments] = useState([defaultOverpayment]);
 
@@ -45,7 +45,7 @@ export default () => {
             <div>
               <h2>Initial</h2>
               <label>Amount</label>
-              <input
+              <input style={{ padding: 10, width: '100%', outline: 'none', border: 'none', backgroundColor: '#e0e0e0' }}
                 maxLength={7}
                 value={initial}
                 onChange={e => setInitial(e.target.value)}
@@ -53,7 +53,7 @@ export default () => {
             </div>
             <div>
               <label>Years</label>
-              <input
+              <input style={{ padding: 10, width: '100%', outline: 'none', border: 'none', backgroundColor: '#e0e0e0' }}
                 type="number"
                 maxLength={2}
                 value={years}
@@ -62,7 +62,7 @@ export default () => {
             </div>
             <div>
               <label>Rate</label>
-              <input
+              <input style={{ padding: 10, width: '100%', outline: 'none', border: 'none', backgroundColor: '#e0e0e0' }}
                 type="number"
                 step={0.1}
                 value={rate}
@@ -74,7 +74,7 @@ export default () => {
             <div>
               <h2>Overpayment</h2>
               <label>Monthly</label>
-              <input
+              <input style={{ padding: 10, width: '100%', outline: 'none', border: 'none', backgroundColor: '#e0e0e0' }}
                 type="number"
                 maxLength={5}
                 value={monthlyOverpayment}
@@ -89,6 +89,7 @@ export default () => {
             {overpayments.map(({ year, month, amount }, i) => (
               <div key={i}>
                 <input
+                  e
                   type="number"
                   min="0"
                   max={years}
